@@ -1,3 +1,4 @@
+import type { SVGProps } from "react";
 import type Product from "../classes/product";
 export interface ProductCardProps {
   product: Product;
@@ -8,9 +9,10 @@ export interface ProductDialogProps {
   product: Product;
 
 }
+export type SVGProp = SVGProps<SVGSVGElement>;
 export interface NavbarItemDTO {
   id: string;
-  icon: string;
+  icon: React.ComponentType<SVGProp>;
   text: string;
   page?: React.FC | null
 }
@@ -33,4 +35,17 @@ export interface ContentLayerProps {
 export interface PagesProps {
   productResult?: Product[];
   loaded?: boolean;
+}
+export interface InfoItem {
+  id: string | number;
+  key: string;
+  value: string;
+};
+export interface InfoSection {
+  id: string | number;
+  title: string;
+  items: InfoItem[];
+}
+export interface InfoGrid {
+  sections: InfoSection[];
 }

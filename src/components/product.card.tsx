@@ -60,14 +60,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </p>
         </div>
         <div>
-          {product.price_before_vat && (
-            <span className="text-xl md:text-2xl font-bold dark:text-[#D9D4BA]">
-              {langPack.price_before_vat.replace(
-                ":price_before_vat:",
-                product.price_before_vat.toString()
-              )}
-            </span>
-          )}
+          <span className="text-xl md:text-2xl font-bold dark:text-[#D9D4BA]">
+            {langPack.price_before_vat.replace(
+              ":price_before_vat:",
+              product.price_before_vat.toString()
+            )}
+          </span>
         </div>
       </div>
       <button

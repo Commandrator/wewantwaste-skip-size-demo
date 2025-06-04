@@ -25,7 +25,14 @@ const languages = {
         "yard":":size: yard",
         "excl_vat":"Excl. VAT",
         "incl_vat":"Incl. VAT",
-        "vat_persentage":"VAT (:vat:%)"
+        "vat_persentage":"VAT (:vat:%)",
+        "size":"Size",
+        "postcode":"Postcode",
+        "hire_period":"Hire Period",
+        "allowed_on_road":"Allowed on Road",
+        "allows_heavy_waste":"Allows Heavy Waste",
+        "forbidden":"Forbidden"
+
     },
     "tr":{
         "select_skip_page_title":"Choose Your Skip Size",
@@ -53,7 +60,13 @@ const languages = {
         "yard":":size: yard",
         "excl_vat":"Excl. VAT",
         "incl_vat":"Incl. VAT",
-        "vat_persentage":"VAT (:vat:%)"
+        "vat_persentage":"VAT (:vat:%)",
+        "size":"Size",
+        "postcode":"Postcode",
+        "hire_period":"Hire Period",
+        "allowed_on_road":"Allowed on Road",
+        "allows_heavy_waste":"Allows Heavy Waste",
+        "forbidden":"Forbidden"
     }
 }
 export default languages;
