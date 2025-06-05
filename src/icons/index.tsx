@@ -1,6 +1,6 @@
 import type { SVGProp } from "../interfaces/props.dto";
 
-export const SharpKeyboardArrowRight:  React.FC<SVGProp> = (props) => (
+export const SharpKeyboardArrowRight: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -14,7 +14,42 @@ export const SharpKeyboardArrowRight:  React.FC<SVGProp> = (props) => (
     ></path>
   </svg>
 );
-export const TwotoneKeyboardArrowLeft:  React.FC<SVGProp> = (props) => (
+export const Arrow: React.FC<SVGProp> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M5 12h14"></path>
+    <path d="m12 5 7 7-7 7"></path>
+  </svg>
+);
+export const Warning: React.FC<SVGProp> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+    <path d="M12 9v4" />
+    <path d="M12 17h.01" />
+  </svg>
+);
+export const TwotoneKeyboardArrowLeft: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -28,7 +63,7 @@ export const TwotoneKeyboardArrowLeft:  React.FC<SVGProp> = (props) => (
     ></path>
   </svg>
 );
-export const WasteType:  React.FC<SVGProp> = (props) => (
+export const WasteType: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -48,7 +83,7 @@ export const WasteType:  React.FC<SVGProp> = (props) => (
     <line x1="14" x2="14" y1="11" y2="17"></line>
   </svg>
 );
-export const SelectSkip:  React.FC<SVGProp> = (props) => (
+export const SelectSkip: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -68,7 +103,7 @@ export const SelectSkip:  React.FC<SVGProp> = (props) => (
     <circle cx="7" cy="18" r="2"></circle>
   </svg>
 );
-export const Postcode:  React.FC<SVGProp> = (props) => (
+export const Postcode: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -85,7 +120,7 @@ export const Postcode:  React.FC<SVGProp> = (props) => (
     <circle cx="12" cy="10" r="3"></circle>
   </svg>
 );
-export const PermitCheck:  React.FC<SVGProp> = (props) => (
+export const PermitCheck: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -101,7 +136,7 @@ export const PermitCheck:  React.FC<SVGProp> = (props) => (
     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
   </svg>
 );
-export const Payment:  React.FC<SVGProp> = (props) => (
+export const Payment: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -118,7 +153,7 @@ export const Payment:  React.FC<SVGProp> = (props) => (
     <line x1="2" x2="22" y1="10" y2="10"></line>
   </svg>
 );
-export const ChooseDate:  React.FC<SVGProp> = (props) => (
+export const ChooseDate: React.FC<SVGProp> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

@@ -2,18 +2,16 @@ import { useEffect, type JSX } from "react";
 import ContentLayer from "../components/content.layer";
 import ProductCard from "../components/product.card";
 import { langPack } from "../main";
-import useApp from "../hooks/useApp";
 import Loader from "../components/loader";
 import ProductDilaog from "../components/product.dilaog";
+import useAppContext from "../hooks/useAppContext";
 const SkipSizePage: React.FC = (): JSX.Element | null => {
   const {
     listProduct,
     loaded,
     productResult,
-    selectedProduct,
-    handleDialogClose,
-    handleSelectProduct,
-  } = useApp();
+    selectedProduct
+  } = useAppContext();
   useEffect(() => {
     if (!loaded || !productResult) listProduct();
   }, [loaded, listProduct, productResult]);
@@ -26,7 +24,6 @@ const SkipSizePage: React.FC = (): JSX.Element | null => {
       {selectedProduct && (
         <ProductDilaog
           product={selectedProduct}
-          handleDialogClose={handleDialogClose}
         />
       )}
       {!loaded && <Loader />}
@@ -36,7 +33,6 @@ const SkipSizePage: React.FC = (): JSX.Element | null => {
             <ProductCard
               key={product.id}
               product={product}
-              handleSelectProduct={handleSelectProduct}
             />
           ))}
       </div>

@@ -1,25 +1,21 @@
 import React, { useRef, type JSX } from "react";
-import type { NavbarItemsDTO, NavbarItemPros } from "../interfaces/props.dto";
+import type { NavbarItemPros } from "../interfaces/props.dto";
 import { langPack } from "../main";
 import { SharpKeyboardArrowRight, TwotoneKeyboardArrowLeft } from "../icons";
+import useAppContext from "../hooks/useAppContext";
+import { navbarItems } from "./navbar.items";
 
 const SCROLL_AMOUNT = 150;
 
-const NavbarMobile: React.FC<NavbarItemsDTO> = ({
-  pageIndex,
-  navbarItems,
-  handleChangePage,
-}) => {
+const NavbarMobile: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -SCROLL_AMOUNT, behavior: "smooth" });
   };
-
   const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: SCROLL_AMOUNT, behavior: "smooth" });
   };
-
+  const { pageIndex } = useAppContext();
   return (
     <div className="relative w-full md:hidden bg-[#262626] dark:bg-[#262626] py-3 px-15">
       <button
@@ -28,7 +24,7 @@ const NavbarMobile: React.FC<NavbarItemsDTO> = ({
         title="Scroll left"
         aria-label="Scroll left"
       >
-        <TwotoneKeyboardArrowLeft className="size-10"/>
+        <TwotoneKeyboardArrowLeft className="size-10" />
       </button>
       <button
         onClick={scrollRight}
@@ -36,34 +32,28 @@ const NavbarMobile: React.FC<NavbarItemsDTO> = ({
         title="Scroll right"
         aria-label="Scroll right"
       >
-        <SharpKeyboardArrowRight className="size-10"/>
+        <SharpKeyboardArrowRight className="size-10" />
       </button>
       <div
         ref={scrollRef}
         className="flex space-x-2 overflow-hidden scrollbar-hide"
-      >        
-      {navbarItems.map((item, index) => (
-        <NavbarItem
-          key={item.id}
-          item={item}
-          disabled={index > pageIndex}
-          handleChangePage={handleChangePage}
-          index={index}
-        />
-      ))}
+      >
+        {navbarItems.map((item, index) => (
+          <NavbarItem
+            key={item.id}
+            item={item}
+            disabled={index > pageIndex}
+            index={index}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-
-const NavbarDesktop: React.FC<NavbarItemsDTO> = ({
-  pageIndex,
-  navbarItems,
-  handleChangePage,
-}): JSX.Element | null => {
+const NavbarDesktop: React.FC = (): JSX.Element | null => {
+  const { pageIndex } = useAppContext();
   if (!navbarItems) return null;
-
   return (
     <div className="text-[#262626] dark:text-[#F2F0D0] hidden md:flex flex-col items-start py-5 space-y-4 sticky top-0 z-[8]">
       <div className="absolute z-[7] inset-0 flex items-center justify-center">
@@ -74,7 +64,6 @@ const NavbarDesktop: React.FC<NavbarItemsDTO> = ({
           key={item.id}
           item={item}
           disabled={index > pageIndex}
-          handleChangePage={handleChangePage}
           index={index}
         />
       ))}
@@ -85,10 +74,10 @@ const NavbarDesktop: React.FC<NavbarItemsDTO> = ({
 const NavbarItem: React.FC<NavbarItemPros> = ({
   item,
   disabled = false,
-  handleChangePage,
   index,
   ...props
 }): JSX.Element => {
+  const { handleChangePage } = useAppContext();
   const Icon = item.icon;
   return (
     <button
@@ -102,7 +91,7 @@ const NavbarItem: React.FC<NavbarItemPros> = ({
       onClick={() => handleChangePage(index, item.id)}
     >
       <div className="flex flex-col md:flex-row items-center w-full space-y-1 md:space-y-0 md:space-x-2">
-        <Icon className="size-5"/>
+        <Icon className="size-5" />
         <span className="select-none text-center md:text-left">
           {langPack[item.text as keyof typeof langPack]}
         </span>

@@ -1,13 +1,7 @@
 import type { SVGProps } from "react";
 import type Product from "../classes/product";
-export interface ProductCardProps {
+export interface ProductProps {
   product: Product;
-  handleSelectProduct: (product: Product) => void;
-}
-export interface ProductDialogProps {
-  handleDialogClose: () => void;
-  product: Product;
-
 }
 export type SVGProp = SVGProps<SVGSVGElement>;
 export interface NavbarItemDTO {
@@ -16,16 +10,10 @@ export interface NavbarItemDTO {
   text: string;
   page?: React.FC | null
 }
-export interface NavbarItemsDTO {
-  pageIndex: number;
-  navbarItems: NavbarItemDTO[];
-  handleChangePage: (index: number, item?: string) => void;
-}
 export interface NavbarItemPros {
   item: NavbarItemDTO;
   index: number
   disabled?: boolean;
-  handleChangePage: (index: number, item?: string) => void;
 }
 export interface ContentLayerProps {
   title?: string;

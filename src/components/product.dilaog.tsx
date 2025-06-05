@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import type { InfoGrid, ProductDialogProps } from "../interfaces/props.dto";
+import type { InfoGrid, ProductProps } from "../interfaces/props.dto";
 import { langPack } from "../main";
+import useAppContext from "../hooks/useAppContext";
 
-const ProductDialog: React.FC<ProductDialogProps> = ({
-  product,
-  handleDialogClose,
-}) => {
+const ProductDialog: React.FC<ProductProps> = ({ product }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
-
+  const { handleDialogClose, handleSelect } = useAppContext();
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const handleClickOutside = (e: MouseEvent) => {
@@ -49,7 +47,7 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
           id: 5,
           key: langPack.allows_heavy_waste,
           value: langPack[product.allows_heavy_waste ? "yes" : "no"],
-        }
+        },
       ],
     },
     {
@@ -93,7 +91,7 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-auto max-h-screen">
       <div
         ref={dialogRef}
-        className="bg-[#1C1C1C] rounded-lg w-full max-w-3xl my-4 flex flex-col md:flex-row"
+        className="bg-[#F2F0D0] dark:bg-[#262626] rounded-lg w-full max-w-3xl my-4 flex flex-col md:flex-row"
       >
         <div className="md:w-1/2 p-4">
           <div className="text-xl font-semibold mb-2 uppercase">
@@ -114,10 +112,12 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-4">
-            <button className="w-full" onClick={handleDialogClose}>
+            <button className="w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center
+          dark:bg-[#59584F] dark:text-[#F2F0D0] hover:bg-[#59584F]/30 hover:border-2" onClick={handleDialogClose}>
               {langPack.close}
             </button>
-            <button className="btn-primary w-full">{langPack.continue}</button>
+            <button className="w-full py-2.5 md:py-3 px-4 rounded-md transition-all flex items-center justify-center
+          dark:bg-[#59584F] dark:text-[#F2F0D0] hover:bg-[#59584F]/30 hover:border-2" onClick={()=>handleSelect(product)}>{langPack.continue}</button>
           </div>
         </div>
       </div>
