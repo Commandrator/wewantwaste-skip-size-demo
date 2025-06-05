@@ -12,14 +12,27 @@ Your goal is to redesign the whole page to look completely different from the or
 
 The application is developed as a Single Page Application (SPA). Since the project is fast and up-to-date, it is built on **Vite**. To simplify styling, **Tailwind CSS** is integrated, and for module safety, **TypeScript** libraries are used throughout the project.
 
+# Project Structure
+
+| Folder       | Description                                                         |
+| ------------ | ------------------------------------------------------------------- |
+| `classes`    | TypeScript class files used for product creation and business logic |
+| `components` | Reusable React components                                           |
+| `contexts`   | Global states managed with React Context API                        |
+| `hooks`      | Custom React hook functions                                         |
+| `icons`      | UI icon files                                                       |
+| `interfaces` | TypeScript interface definitions                                    |
+| `lang`       | Multilingual support files                                          |
+| `pages`      | Application page components                                         |
+
 ## **Scripts (package.json)**
+
 These npm scripts are used for development, building, linting, and previewing the project:
 
-* **dev**: Starts the development server with live reload for fast development.
-* **build**: Compiles TypeScript files and bundles the project for production using Vite.
-* **lint**: Runs ESLint to check code quality.
-* **preview**: Serves the production build locally for testing.
-
+- **dev**: Starts the development server with live reload for fast development.
+- **build**: Compiles TypeScript files and bundles the project for production using Vite.
+- **lint**: Runs ESLint to check code quality.
+- **preview**: Serves the production build locally for testing.
 
 ## main.tsx
 
